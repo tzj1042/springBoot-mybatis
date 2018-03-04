@@ -11,4 +11,5 @@ import java.util.List;
  */
 public interface UserService {
     List<User> getList (User user);
+    void testAsync();
 }

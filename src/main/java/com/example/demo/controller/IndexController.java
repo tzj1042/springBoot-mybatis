@@ -7,6 +7,7 @@ import com.github.pagehelper.PageHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.ModelMap;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 ;
 
 /**
@@ -30,8 +32,10 @@ public class IndexController {
 
     @Autowired
     private UserService userService;
+
     /**
      * 模板引擎测试Controller
+     *
      * @param map
      * @return
      */
@@ -49,12 +53,34 @@ public class IndexController {
     }
 
 
+    /**
+     * 数据库操作测试
+     *
+     * @param user
+     * @return
+     */
     @RequestMapping("/getUser")
     @ResponseBody
     public Object getUser(User user) {
         log.debug("用户列表！");
-        PageHelper.startPage(2,2,false);
+        PageHelper.startPage(2, 2, false);
         List<User> list = userService.getList(user);
         return list;
     }
+
+    /**
+     * 异步测试
+     *
+     * @return
+     */
+    @RequestMapping("/testAsync")
+    @ResponseBody
+    public Object testAsync() {
+        System.out.println("1111111111111");
+        userService.testAsync();
+        System.out.println("2222222222222");
+        return "异步测试";
+    }
+
+
 }
