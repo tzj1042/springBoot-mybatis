@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 public class TestBigDecimal {
     public static void main(String[] args) {
         BigDecimal a=new BigDecimal("2");
-        BigDecimal b=new BigDecimal("3");
+        BigDecimal b=new BigDecimal("27");
         System.out.println("a+b="+a.add(b));
         System.out.println("a-b="+a.subtract(b));
         System.out.println("a*b="+a.multiply(b));
@@ -33,5 +33,15 @@ public class TestBigDecimal {
         //BigDecimal c = BigDecimal.ZERO;
        // BigDecimal d =null;
         //System.out.println("测试："+d.add(c));
+
+        System.out.println("测试！！");
+        BigDecimal payGiveMoney=new BigDecimal("4.0");
+        BigDecimal payMoney=new BigDecimal("0.00");
+        BigDecimal totalMoney=new BigDecimal("3.0");
+        if (payGiveMoney.add(payMoney).compareTo(totalMoney) < 0){
+            System.out.println("小于返回！！");
+        }else {
+            System.out.println("大于继续！");
+        }
     }
 }
