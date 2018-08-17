@@ -19,10 +19,22 @@
 </p>
 
 
-<h4>我的好友：</h4>
+<h4 id="my">我的好友：</h4>
 <#list list as item>
 姓名：${item}
 <br>
 </#list>
 </body>
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+loop();
+
+function loop(){
+    $.get("testAsyncWork",function(data){
+        console.log(data);
+        $("#my").html(data);
+        loop();
+    })
+}
+</script>
 </html>

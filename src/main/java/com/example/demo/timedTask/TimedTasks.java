@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class TimedTasks {
 
-    @Scheduled(fixedRate = 1000)
+    /*@Scheduled(fixedRate = 1000)
     public void  timed(){
         System.out.println("每隔一秒钟执行！！");
-    }
+    }*/
 }

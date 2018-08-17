@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: tzj
@@ -26,6 +27,11 @@ public class UserServiceImpl implements UserService{
         return userMapper.getList(user);
     }
 
+    @Override
+    public int insert(User user) {
+        return userMapper.insert(user);
+    }
+
     @Async
     public void testAsync(){
         System.out.println("3333333333333");
@@ -33,5 +39,25 @@ public class UserServiceImpl implements UserService{
 //            System.out.println("i:"+i);
 //        }
         System.out.println("4444444444444");
+    }
+
+    @Override
+    public Map<String, Object> selectVersion() {
+        return userMapper.selectVersion();
+    }
+
+    @Override
+    public void callDeleteById(Integer id) {
+        userMapper.callDeleteById(id);
+    }
+
+    @Override
+    public void deleteAndSelect(Map<String,Object> map) {
+         userMapper.deleteAndSelect(map);
+    }
+
+    @Override
+    public List<Map<String, Object>> selectAll() {
+        return userMapper.selectAll();
     }
 }

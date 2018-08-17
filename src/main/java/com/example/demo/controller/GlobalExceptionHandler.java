@@ -18,6 +18,7 @@ public class GlobalExceptionHandler {
         resultMap.put("code",500);
         resultMap.put("msg","服务器异常！！！");
         resultMap.put("err",e.getMessage());
+        e.printStackTrace();
         return resultMap;
     }
 }

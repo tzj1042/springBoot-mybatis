@@ -86,4 +86,22 @@
     <include refid="Base_Column_List" />
     from t_user
   </select>
+
+  <select id="selectVersion" statementType="CALLABLE" resultType="java.util.Map">
+    call sp();
+  </select>
+
+  <select id="callDeleteById" statementType="CALLABLE" parameterType="java.lang.Integer">
+    call sp2(#{id,jdbcType=INTEGER});
+  </select>
+
+  <select id="deleteAndSelect" statementType="CALLABLE" parameterType="java.util.Map" resultType="java.util.Map">
+    call deleteAndSelect(#{id,mode=IN,jdbcType=INTEGER},#{userNum,mode=OUT,jdbcType=INTEGER});
+  </select>
+
+  <select id="selectAll" statementType="CALLABLE" resultType="java.util.Map">
+    call selectAll();
+  </select>
+
+
 </mapper>

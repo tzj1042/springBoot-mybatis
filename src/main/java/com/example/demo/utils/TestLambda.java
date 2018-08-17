@@ -33,8 +33,8 @@ public class TestLambda {
         System.out.println("排序前：");
         list.forEach(a -> System.out.print(a+","));
         list.sort(
-                //(a,b) -> a.compareTo(b)//按字符串排序
-                (a,b) -> a.length()-b.length()//按字符串长度排序
+                (a,b) -> a.compareTo(b)//按字符串排序
+                //(a,b) -> a.length()-b.length()//按字符串长度排序
         );
         System.out.println("\n排序后：");
         list.forEach(a -> System.out.print(a+","));
@@ -109,10 +109,10 @@ public class TestLambda {
 
         ArrayList<String> strings = new ArrayList<>();
         strings.add("adc");
-        strings.add("bcad");
-        strings.add("cdfgafdfdf");
+        strings.add("ccad");
+        strings.add("bdfgafdfdf");
         strings.add("dfdsdfefdsfdfdf");
-        //ListStringSort(strings);
+        ListStringSort(strings);
 
         //ListIntAdd(integers);
 
